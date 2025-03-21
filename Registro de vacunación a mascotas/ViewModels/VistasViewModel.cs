@@ -17,7 +17,8 @@ namespace Registro_de_vacunación_a_mascotas.ViewModels
     public class VistasViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        VistasRepository repos = new();
+        MascotasRepository mascotasRepos = new();
+        VacunasRepository vacunasRepos = new();
 
         public ICommand InicioCommand { get; set; }
         public ICommand HistorialCommand { get; set; }
@@ -56,42 +57,42 @@ namespace Registro_de_vacunación_a_mascotas.ViewModels
         private void HistorialV()
         {
             Vista = historial;
-            Historial = repos.HistorialVacunas().ToList();
+            Historial = vacunasRepos.HistorialVacunas().ToList();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
         MascotasMasVacunasView mascotasMasVacunas = new();
         private void MascotasMasVacunas()
         {         
             Vista = mascotasMasVacunas;
-            MascotasConMasVacunas = repos.MascotasConMásVacunas().ToList();
+            MascotasConMasVacunas = mascotasRepos.MascotasConMásVacunas().ToList();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
         VacunasAplicadasHaceDiasView vacunas = new();
         private void VacunasAplicadasHaceDias()
         {         
             Vista = vacunas;
-            VacunasAplicadasHaceDiasL = repos.VacunasAplicadasHaceDias().ToList();
+            VacunasAplicadasHaceDiasL = vacunasRepos.VacunasAplicadasHaceDias().ToList();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
         MascotasSinAplicarseVacunasView mascotas = new();
         private void MascotasSinAplicarseVacunas()
         {
             Vista = mascotas;
-            MascotasSinVacunas = repos.MascotasSinVacunas().ToList();
+            MascotasSinVacunas = mascotasRepos.MascotasSinVacunas().ToList();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
         MascotasSinTodasSusVacunasView mascotasVacunasFaltantes = new();
         private void MascotasSinTodasVacunas()
         {
             Vista = mascotasVacunasFaltantes;
-            MascotasConVacunasFaltantes = repos.MascotasVacunasFaltantes().ToList();
+            MascotasConVacunasFaltantes = mascotasRepos.MascotasVacunasFaltantes().ToList();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
         VacunasSinAplicarView vacunasSinAplicar = new();
         private void VacunasSinAplicar()
         {
             Vista = vacunasSinAplicar;
-            VacunasSinAplicarL = repos.VacunasSinAplicar().ToList();
+            VacunasSinAplicarL = vacunasRepos.VacunasSinAplicar().ToList();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
     }

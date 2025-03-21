@@ -7,25 +7,13 @@ using System.Threading.Tasks;
 
 namespace Registro_de_vacunación_a_mascotas.Repositories
 {
-    public class VistasRepository
+    public class VacunasRepository
     {
         VeterinariaContext context = new();
 
         public IEnumerable<Vwhistorialvacunas> HistorialVacunas()
         {
             return context.Vwhistorialvacunas.ToList();
-        }
-        public IEnumerable<Vwmascotasconmasvacunas> MascotasConMásVacunas()
-        {
-            return context.Vwmascotasconmasvacunas.ToList();
-        }
-        public IEnumerable<Vwmascotassinvacunas> MascotasSinVacunas()
-        {
-            return context.Vwmascotassinvacunas.ToList();
-        }
-        public IEnumerable<Vwmascotasvacunasfaltantes> MascotasVacunasFaltantes()
-        {
-            return context.Vwmascotasvacunasfaltantes.ToList();
         }
         public IEnumerable<Vwvacunassinaplicar> VacunasSinAplicar()
         {
